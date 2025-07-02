@@ -1,0 +1,16 @@
+# Logs
+*.log
+
+# Node modules
+node_modules/
+
+# Build directories
+.dist/
+.build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Netlify
+.netlify/
