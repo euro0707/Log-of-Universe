@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier Prime', 'Noto Sans JP', monospace, sans-serif;
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('images/bg_home_grid_galaxy.png');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1.5s ease-in-out;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 3.5rem;
+    text-shadow: 0 0 10px #0fa, 0 0 20px #0fa, 0 0 30px #0fa;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #0fa;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 50px;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+    text-shadow: 0 0 5px #000;
+}
+
+.result-message {
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 30px 0;
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
+    color: #fff;
+    text-shadow: 0 0 5px #0fa, 0 0 10px #0fa;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(0, 255, 170, 0.8);
+    }
+}
+
+.result-message.show {
+    opacity: 1;
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.draw-button, .action-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #0fa;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier Prime', 'Noto Sans JP', monospace, sans-serif;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #0fa;
+    box-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
+}
+
+.draw-button:hover, .action-button:hover {
+    background-color: rgba(0, 255, 170, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 170, 0.8);
+}
+
+.draw-button:active, .action-button:active {
+    transform: scale(0.98);
+}
+
+.share-text {
+    display: inline-block;
+}
+
+/* 特別メッセージ用のスタイル */
+.special-message {
+    color: #fff;
+    text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0;
+    animation: special-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes special-glow {
+    from {
+        text-shadow: 0 0 10px #ff0, 0 0 20px #ff0;
+    }
+    to {
+        text-shadow: 0 0 15px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
+    }
+}
+
+/* 落ち着いたメッセージ用のスタイル */
+.calm-message {
+    color: #fff;
+    text-shadow: 0 0 10px #0af, 0 0 20px #0af;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .description {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+    
+    .result-message {
+        font-size: 1.8rem;
+        min-height: 120px;
+        padding: 20px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+    
+    .result-message {
+        font-size: 1.5rem;
+        min-height: 100px;
+        margin: 20px 0;
+        padding: 15px;
+    }
+    
+    .draw-button, .action-button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+}

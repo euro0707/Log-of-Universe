@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG of UNIVERSE</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ホーム画面 -->
+    <div id="home-screen" class="screen">
+        <div class="container">
+            <h1 class="title">LOG of UNIVERSE</h1>
+            
+            <div class="description">
+                ノーコードで疲れたあなたに、宇宙からのメッセージを。
+            </div>
+            
+            <button id="draw-button" class="draw-button">おみくじを引く</button>
+        </div>
+    </div>
+    
+    <!-- 結果画面 -->
+    <div id="result-screen" class="screen hidden">
+        <div class="container">
+            <div id="result-message" class="result-message"></div>
+            
+            <div class="button-group">
+                <button id="draw-again-button" class="action-button">もう一度引く</button>
+                <button id="share-button" class="action-button">
+                    <span class="share-text">#精神みくじ をシェアする</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="messages_new.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
