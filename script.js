@@ -79,9 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // シェアボタンの処理
     function shareResult() {
         if (!currentResultText) return;
-        const tweetText = `🌌 Log of Universe\n「${currentResultText}」\n#LogOfUniverse`;
-        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
-        window.open(url, '_blank');
+        const tweetText = `🌌 Log of Universe\n「${currentResultText}」`;
+        const siteUrl = 'https://log-of-universe.windsurf.build/';
+        const intentUrl = 'https://twitter.com/intent/tweet?' +
+                          'text=' + encodeURIComponent(tweetText) +
+                          '&url=' + encodeURIComponent(siteUrl) +
+                          '&hashtags=LogOfUniverse';
+        window.open(intentUrl, '_blank');
     }
     
     // イベントリスナーの設定
