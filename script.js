@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const drawButton = document.getElementById('draw-button');
     const drawAgainButton = document.getElementById('draw-again-button');
     const shareButton = document.getElementById('share-button');
+
+    // 現在表示中のメッセージを保持
+    let currentResultText = "";
     const resultMessage = document.getElementById('result-message');
     
     // 背景画像のパス
@@ -51,7 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // メッセージを表示（遅延させて演出効果を高める）
         setTimeout(() => {
-            resultMessage.textContent = selectedMessage.text;
+            currentResultText = selectedMessage.text;
+            resultMessage.textContent = currentResultText;
             resultMessage.classList.add('show');
             
             // ボタンを再度有効化
@@ -74,8 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // シェアボタンの処理
     function shareResult() {
-        const text = encodeURIComponent(`${resultMessage.textContent} #LogOfUniverse`);
-        const url = `https://twitter.com/intent/tweet?text=${text}`;
+        if (!currentResultText) return;
+        const tweetText = `🌌 Log of Universe\n「${currentResultText}」\n#LogOfUniverse`;
+        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
         window.open(url, '_blank');
     }
     
